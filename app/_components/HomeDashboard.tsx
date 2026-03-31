@@ -17,9 +17,9 @@ export function HomeDashboard() {
   const totalWords = readings.reduce((sum, r) => sum + (r.progress?.wordsRead ?? 0), 0);
 
   const activity = [
-    { label: "Hours Spent", value: totalHours % 1 === 0 ? totalHours : totalHours.toFixed(1), unit: "h" },
+    { label: "Hours Spent", value: totalHours % 1 === 0 ? String(totalHours) : totalHours.toFixed(1), unit: "h" },
     { label: "Pages Read", value: totalPages.toLocaleString(), unit: "pg" },
-    { label: "Words Read", value: totalWords >= 1000 ? `${(totalWords / 1000).toFixed(1)}k` : totalWords.toString(), unit: "w" },
+    { label: "Words Read", value: totalWords >= 1000 ? `${(totalWords / 1000).toFixed(1)}k` : String(totalWords), unit: "w" },
   ];
 
   const shelves = [
@@ -30,40 +30,41 @@ export function HomeDashboard() {
 
   return (
     <>
-      {/* Stats */}
-      <section className="grid grid-cols-3 gap-4">
-        {stats.map((stat) => (
-          <div
-            key={stat.label}
-            className="rounded-xl bg-white border border-wisteria-blue/20 px-6 py-5 text-center shadow-sm"
-          >
-            <p className="text-3xl font-bold text-persian-blue">{stat.value}</p>
-            <p className="text-sm text-space-indigo/60 mt-1">{stat.label}</p>
-          </div>
-        ))}
-      </section>
-
-      {/* Reading activity */}
-      <section className="grid grid-cols-3 gap-4">
-        {activity.map((item) => (
-          <div
-            key={item.label}
-            className="rounded-xl bg-white border border-wisteria-blue/20 px-6 py-5 text-center shadow-sm"
-          >
-            <p className="text-3xl font-bold text-electric-sapphire">
-              {item.value}
-              <span className="text-base font-normal text-space-indigo/40 ml-0.5">{item.unit}</span>
-            </p>
-            <p className="text-sm text-space-indigo/60 mt-1">{item.label}</p>
-          </div>
-        ))}
+      {/* Reading stats */}
+      <section>
+        <h2 className="font-heading text-xl font-bold text-text mb-4">Your Stats</h2>
+        <div className="grid grid-cols-3 gap-4 mb-4">
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="rounded-[32px] backdrop-blur-[10px] bg-[rgba(0,26,54,0.6)] border border-[rgba(157,143,255,0.1)] px-6 py-6 text-center shadow-sm"
+            >
+              <p className="font-heading text-3xl font-bold text-purple">{stat.value}</p>
+              <p className="text-xs text-text-sub mt-1.5 uppercase tracking-wide">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+        <div className="grid grid-cols-3 gap-4">
+          {activity.map((item) => (
+            <div
+              key={item.label}
+              className="rounded-[32px] backdrop-blur-[10px] bg-[rgba(0,26,54,0.6)] border border-[rgba(157,143,255,0.1)] px-6 py-6 text-center shadow-sm"
+            >
+              <p className="font-heading text-3xl font-bold text-text-accent">
+                {item.value}
+                <span className="text-base font-normal text-text-muted ml-0.5">{item.unit}</span>
+              </p>
+              <p className="text-xs text-text-sub mt-1.5 uppercase tracking-wide">{item.label}</p>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* Shelf preview */}
       <section>
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-space-indigo">My Shelves</h2>
-          <Link href="/shelves" className="text-sm text-electric-sapphire hover:text-persian-blue transition-colors font-medium">
+          <h2 className="font-heading text-xl font-bold text-text">My Shelves</h2>
+          <Link href="/shelves" className="text-sm text-purple hover:text-text-accent transition-colors font-semibold">
             View all →
           </Link>
         </div>
@@ -74,13 +75,13 @@ export function HomeDashboard() {
               <Link
                 key={shelf.status}
                 href="/shelves"
-                className="rounded-xl bg-white border border-wisteria-blue/20 px-5 py-6 shadow-sm hover:shadow-md transition-shadow"
+                className="rounded-[32px] backdrop-blur-[10px] bg-[rgba(0,26,54,0.6)] border border-[rgba(157,143,255,0.1)] px-6 py-6 shadow-sm hover:border-[rgba(157,143,255,0.3)] transition-colors"
               >
-                <div className="w-9 h-9 rounded-lg bg-lavender-purple/15 flex items-center justify-center mb-3">
+                <div className="w-10 h-10 rounded-full bg-[rgba(157,143,255,0.1)] flex items-center justify-center mb-3">
                   <span className="text-lg">{shelf.emoji}</span>
                 </div>
-                <p className="font-medium text-prussian-blue text-sm">{shelf.label}</p>
-                <p className="text-xs text-space-indigo/50 mt-1">{count} {count === 1 ? "item" : "items"}</p>
+                <p className="font-heading font-semibold text-text text-sm">{shelf.label}</p>
+                <p className="text-xs text-text-muted mt-1">{count} {count === 1 ? "item" : "items"}</p>
               </Link>
             );
           })}

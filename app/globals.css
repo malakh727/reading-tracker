@@ -1,36 +1,62 @@
 @import "tailwindcss";
 
-/* ============================================
-   Galaxy Bubble Dance — Design System Palette
-   ============================================ */
 :root {
-  --prussian-blue:    #09192d;
-  --space-indigo:     #212152;
-  --persian-blue:     #4c36be;
-  --electric-sapphire:#5e71ec;
-  --wisteria-blue:    #9ba8fa;
-  --blue-violet:      #892ed3;
-  --lavender-purple:  #9c55e5;
-  --pink-orchid:      #edbce5;
+  --canvas:        #000e22;
+  --surface:       #001a36;
+  --surface-2:     #00142c;
+  --surface-glass: rgba(0, 26, 54, 0.6);
+  --surface-indigo:#212152;
+  --track:         #00264c;
+
+  --text:          #d9e6ff;
+  --text-accent:   #dfb7ff;
+  --text-sub:      #94a3b8;
+  --text-muted:    #64748b;
+  --text-info:     #8fadda;
+  --text-body:     #cbd5e1;
+
+  --purple:        #9d8fff;
+  --purple-deep:   #8775fc;
+  --blue:          #4c36be;
+
+  --border:        #2a4971;
+  --border-subtle: rgba(42, 73, 113, 0.3);
+  --border-purple: rgba(157, 143, 255, 0.15);
+
+  --danger-text:   #c8475d;
+  --danger-bg:     rgba(138, 22, 50, 0.2);
 }
 
-/* Tailwind v4 theme tokens */
 @theme inline {
-  --font-sans: var(--font-geist-sans);
+  --font-sans:    var(--font-manrope);
+  --font-heading: var(--font-space-grotesk);
 
-  /* Galaxy Bubble Dance colors */
-  --color-prussian-blue:     var(--prussian-blue);
-  --color-space-indigo:      var(--space-indigo);
-  --color-persian-blue:      var(--persian-blue);
-  --color-electric-sapphire: var(--electric-sapphire);
-  --color-wisteria-blue:     var(--wisteria-blue);
-  --color-blue-violet:       var(--blue-violet);
-  --color-lavender-purple:   var(--lavender-purple);
-  --color-pink-orchid:       var(--pink-orchid);
+  --color-canvas:         var(--canvas);
+  --color-surface:        var(--surface);
+  --color-surface-2:      var(--surface-2);
+  --color-surface-indigo: var(--surface-indigo);
+  --color-track:          var(--track);
+
+  --color-text:           var(--text);
+  --color-text-accent:    var(--text-accent);
+  --color-text-sub:       var(--text-sub);
+  --color-text-muted:     var(--text-muted);
+  --color-text-info:      var(--text-info);
+  --color-text-body:      var(--text-body);
+
+  --color-purple:         var(--purple);
+  --color-purple-deep:    var(--purple-deep);
+  --color-blue:           var(--blue);
+
+  --color-border:         var(--border);
 }
 
 body {
+  background-color: var(--canvas);
+  color: var(--text);
   font-family: var(--font-sans), system-ui, sans-serif;
-  background-color: #f4f3ff;
-  color: var(--prussian-blue);
+}
+
+.font-heading {
+  font-family: var(--font-heading), var(--font-sans), system-ui, sans-serif;
 }

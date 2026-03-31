@@ -101,7 +101,7 @@ export function AddReadingForm() {
     <form onSubmit={handleSubmit} className="flex flex-col gap-6">
       {/* Type picker */}
       <div>
-        <label className="block text-xs font-semibold text-space-indigo/70 uppercase tracking-widest mb-2">
+        <label className="block text-[10px] font-semibold text-text-muted uppercase tracking-[2px] mb-2">
           Type
         </label>
         <div className="flex gap-2">
@@ -115,10 +115,10 @@ export function AddReadingForm() {
                 setTitle("");
                 setAuthor("");
               }}
-              className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium border transition-colors ${
+              className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium border transition-colors ${
                 type === t.value
-                  ? "bg-electric-sapphire text-white border-electric-sapphire"
-                  : "bg-white text-space-indigo border-wisteria-blue/30 hover:border-electric-sapphire"
+                  ? "bg-blue text-white border-blue"
+                  : "bg-surface border-border text-text-sub hover:border-purple"
               }`}
             >
               <span>{t.icon}</span> {t.label}
@@ -129,7 +129,7 @@ export function AddReadingForm() {
 
       {/* Title */}
       <div>
-        <label className="block text-xs font-semibold text-space-indigo/70 uppercase tracking-widest mb-2">
+        <label className="block text-[10px] font-semibold text-text-muted uppercase tracking-[2px] mb-2">
           Title
         </label>
         {type === "book" ? (
@@ -148,11 +148,11 @@ export function AddReadingForm() {
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Title"
             required
-            className="w-full px-4 py-2.5 rounded-xl border border-wisteria-blue/30 bg-white text-prussian-blue placeholder-space-indigo/40 focus:outline-none focus:border-electric-sapphire text-sm"
+            className="w-full px-5 py-3 rounded-full border border-border bg-[#002041] text-text placeholder-text-muted focus:outline-none focus:border-purple text-sm"
           />
         )}
         {linkedBook && (
-          <p className="mt-1.5 text-xs text-persian-blue font-medium">
+          <p className="mt-1.5 text-xs text-purple font-medium">
             ✓ Linked to Open Library record
           </p>
         )}
@@ -160,7 +160,7 @@ export function AddReadingForm() {
 
       {/* Author */}
       <div>
-        <label className="block text-xs font-semibold text-space-indigo/70 uppercase tracking-widest mb-2">
+        <label className="block text-[10px] font-semibold text-text-muted uppercase tracking-[2px] mb-2">
           Author <span className="normal-case font-normal opacity-60">(optional)</span>
         </label>
         <input
@@ -168,14 +168,14 @@ export function AddReadingForm() {
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
           placeholder="Author name"
-          className="w-full px-4 py-2.5 rounded-xl border border-wisteria-blue/30 bg-white text-prussian-blue placeholder-space-indigo/40 focus:outline-none focus:border-electric-sapphire text-sm"
+          className="w-full px-5 py-3 rounded-full border border-border bg-[#002041] text-text placeholder-text-muted focus:outline-none focus:border-purple text-sm"
         />
       </div>
 
       {/* URL — for articles/other only */}
       {type !== "book" && (
         <div>
-          <label className="block text-xs font-semibold text-space-indigo/70 uppercase tracking-widest mb-2">
+          <label className="block text-[10px] font-semibold text-text-muted uppercase tracking-[2px] mb-2">
             URL <span className="normal-case font-normal opacity-60">(optional)</span>
           </label>
           <input
@@ -183,14 +183,14 @@ export function AddReadingForm() {
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             placeholder="https://…"
-            className="w-full px-4 py-2.5 rounded-xl border border-wisteria-blue/30 bg-white text-prussian-blue placeholder-space-indigo/40 focus:outline-none focus:border-electric-sapphire text-sm"
+            className="w-full px-5 py-3 rounded-full border border-border bg-[#002041] text-text placeholder-text-muted focus:outline-none focus:border-purple text-sm"
           />
         </div>
       )}
 
       {/* Status */}
       <div>
-        <label className="block text-xs font-semibold text-space-indigo/70 uppercase tracking-widest mb-2">
+        <label className="block text-[10px] font-semibold text-text-muted uppercase tracking-[2px] mb-2">
           Status
         </label>
         <div className="flex gap-2 flex-wrap">
@@ -199,10 +199,10 @@ export function AddReadingForm() {
               key={s.value}
               type="button"
               onClick={() => setStatus(s.value)}
-              className={`px-4 py-2 rounded-xl text-sm font-medium border transition-colors ${
+              className={`px-4 py-2 rounded-full text-sm font-medium border transition-colors ${
                 status === s.value
-                  ? "bg-persian-blue text-white border-persian-blue"
-                  : "bg-white text-space-indigo border-wisteria-blue/30 hover:border-persian-blue"
+                  ? "bg-blue text-white border-blue"
+                  : "bg-surface border-border text-text-sub hover:border-purple"
               }`}
             >
               {s.label}
@@ -213,7 +213,7 @@ export function AddReadingForm() {
 
       {/* Rating */}
       <div>
-        <label className="block text-xs font-semibold text-space-indigo/70 uppercase tracking-widest mb-2">
+        <label className="block text-[10px] font-semibold text-text-muted uppercase tracking-[2px] mb-2">
           Rating <span className="normal-case font-normal opacity-60">(optional)</span>
         </label>
         <StarRating value={rating} onChange={setRating} />
@@ -221,7 +221,7 @@ export function AddReadingForm() {
 
       {/* Notes */}
       <div>
-        <label className="block text-xs font-semibold text-space-indigo/70 uppercase tracking-widest mb-2">
+        <label className="block text-[10px] font-semibold text-text-muted uppercase tracking-[2px] mb-2">
           Notes <span className="normal-case font-normal opacity-60">(optional)</span>
         </label>
         <textarea
@@ -229,27 +229,27 @@ export function AddReadingForm() {
           onChange={(e) => setNotes(e.target.value)}
           placeholder="Your thoughts…"
           rows={3}
-          className="w-full px-4 py-2.5 rounded-xl border border-wisteria-blue/30 bg-white text-prussian-blue placeholder-space-indigo/40 focus:outline-none focus:border-electric-sapphire text-sm resize-none"
+          className="w-full px-5 py-3 rounded-[12px] border border-border bg-[#002041] text-text placeholder-text-muted focus:outline-none focus:border-purple text-sm resize-none"
         />
       </div>
 
       {/* Duplicate warning */}
       {dupWarning && (
-        <div className="rounded-xl bg-pink-orchid/20 border border-pink-orchid/40 p-4 text-sm text-prussian-blue">
+        <div className="rounded-[20px] bg-[rgba(138,22,50,0.2)] border border-[rgba(253,111,133,0.2)] p-4 text-sm text-[#c8475d]">
           <p className="font-semibold mb-2">⚠️ Possible duplicate</p>
           <p className="mb-3">{dupWarning}</p>
           <div className="flex gap-3">
             <button
               type="button"
               onClick={(e) => handleSubmit(e as unknown as React.FormEvent, true)}
-              className="px-4 py-1.5 rounded-lg bg-persian-blue text-white text-xs font-medium hover:bg-space-indigo transition-colors"
+              className="px-4 py-1.5 rounded-full bg-blue text-white text-xs font-medium hover:opacity-90 transition-opacity"
             >
               Add anyway
             </button>
             <button
               type="button"
               onClick={() => setDupWarning(null)}
-              className="px-4 py-1.5 rounded-lg border border-wisteria-blue/30 text-space-indigo text-xs font-medium hover:border-persian-blue transition-colors"
+              className="px-4 py-1.5 rounded-full border border-border text-text-sub text-xs font-medium hover:border-purple transition-colors"
             >
               Cancel
             </button>
@@ -262,7 +262,7 @@ export function AddReadingForm() {
         <button
           type="submit"
           disabled={!title.trim()}
-          className="w-full py-3 rounded-xl bg-electric-sapphire hover:bg-persian-blue disabled:opacity-40 disabled:cursor-not-allowed transition-colors text-white font-semibold text-sm"
+          className="w-full py-3 rounded-full bg-blue hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed transition-opacity text-white font-bold text-sm shadow-[0px_10px_30px_0px_rgba(76,54,190,0.4)]"
         >
           Add Reading
         </button>

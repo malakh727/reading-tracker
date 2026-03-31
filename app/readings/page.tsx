@@ -35,12 +35,12 @@ export default function ReadingsPage() {
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-prussian-blue">All Readings</h1>
-          <p className="text-space-indigo/60 text-sm mt-1">{readings.length} total</p>
+          <h1 className="font-heading text-3xl font-bold text-text tracking-[-1.5px]">All Readings</h1>
+          <p className="text-text-muted text-sm mt-1">{readings.length} total</p>
         </div>
         <Link
           href="/readings/new"
-          className="px-5 py-2.5 rounded-xl bg-electric-sapphire hover:bg-persian-blue transition-colors text-white text-sm font-semibold"
+          className="px-6 py-2.5 rounded-full bg-blue text-white text-sm font-bold shadow-[0px_10px_30px_0px_rgba(76,54,190,0.4)] hover:opacity-90 transition-opacity"
         >
           + Add Reading
         </Link>
@@ -53,10 +53,10 @@ export default function ReadingsPage() {
             <button
               key={f.value}
               onClick={() => setTypeFilter(f.value)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${
+              className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${
                 typeFilter === f.value
-                  ? "bg-electric-sapphire text-white border-electric-sapphire"
-                  : "bg-white text-space-indigo border-wisteria-blue/30 hover:border-electric-sapphire"
+                  ? "bg-[#9d8fff] text-[#1c0071] font-bold border-[#9d8fff]"
+                  : "bg-surface-2 border-border text-text-sub hover:border-purple"
               }`}
             >
               {f.label}
@@ -68,10 +68,10 @@ export default function ReadingsPage() {
             <button
               key={f.value}
               onClick={() => setStatusFilter(f.value)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors ${
+              className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${
                 statusFilter === f.value
-                  ? "bg-persian-blue text-white border-persian-blue"
-                  : "bg-white text-space-indigo border-wisteria-blue/30 hover:border-persian-blue"
+                  ? "bg-[#9d8fff] text-[#1c0071] font-bold border-[#9d8fff]"
+                  : "bg-surface-2 border-border text-text-sub hover:border-purple"
               }`}
             >
               {f.label}
@@ -82,12 +82,12 @@ export default function ReadingsPage() {
 
       {/* List */}
       {filtered.length === 0 ? (
-        <div className="text-center py-20 rounded-2xl bg-white border border-wisteria-blue/20">
+        <div className="rounded-[32px] bg-surface border border-[rgba(42,73,113,0.3)] py-20 text-center">
           <p className="text-3xl mb-3">📭</p>
-          <p className="text-space-indigo/60 text-sm mb-4">No readings found.</p>
+          <p className="text-text-muted text-sm mb-4">No readings found.</p>
           <Link
             href="/readings/new"
-            className="text-electric-sapphire text-sm hover:text-persian-blue font-medium"
+            className="text-purple text-sm hover:text-text-accent font-medium"
           >
             Add your first reading →
           </Link>

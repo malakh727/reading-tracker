@@ -17,35 +17,55 @@ const typeLabel: Record<ReadingType, string> = {
 
 export function ReadingCard({ reading }: { reading: Reading }) {
   const cover = reading.linkedBook?.coverUrl;
+  const pagesRead = reading.progress?.pagesRead ?? 0;
+  const totalPages = reading.progress?.totalPages ?? 0;
+  const pct = totalPages > 0 ? Math.min(100, Math.round((pagesRead / totalPages) * 100)) : null;
 
   return (
     <Link
       href={`/readings/${reading.id}`}
-      className="flex gap-4 rounded-xl bg-white border border-wisteria-blue/20 p-4 shadow-sm hover:shadow-md transition-shadow"
+      className="flex gap-5 rounded-[32px] bg-surface-indigo p-6 hover:opacity-90 transition-opacity"
     >
       {/* Cover / icon */}
-      <div className="shrink-0 w-14 h-20 rounded-lg bg-space-indigo flex items-center justify-center overflow-hidden">
+      <div className="shrink-0 w-16 h-24 rounded-[8px] bg-surface flex items-center justify-center overflow-hidden shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.25)]">
         {cover ? (
-          <Image src={cover} alt={reading.title} width={56} height={80} className="object-cover w-full h-full" />
+          <Image src={cover} alt={reading.title} width={64} height={96} className="object-cover w-full h-full" />
         ) : (
           <span className="text-2xl">{typeIcon[reading.type]}</span>
         )}
       </div>
 
       {/* Info */}
-      <div className="flex flex-col gap-1.5 min-w-0">
-        <p className="text-xs font-semibold text-electric-sapphire uppercase tracking-widest">
+      <div className="flex flex-col gap-1.5 min-w-0 flex-1 py-1">
+        <p className="text-[10px] font-semibold text-text-accent uppercase tracking-[1px]">
           {typeLabel[reading.type]}
         </p>
-        <p className="font-semibold text-prussian-blue text-sm leading-snug line-clamp-2">
+        <p className="font-heading font-bold text-text text-base leading-snug line-clamp-2">
           {reading.title}
         </p>
         {reading.author && (
-          <p className="text-xs text-space-indigo/60">{reading.author}</p>
+          <p className="text-xs text-text-sub">{reading.author}</p>
         )}
-        <div className="mt-auto">
+        <div className="mt-auto pt-2">
           <StatusBadge status={reading.status} />
         </div>
+        {pct !== null && (
+          <div className="mt-2">
+            <div className="flex justify-between text-[10px] text-text-muted mb-1">
+              <span>Progress</span>
+              <span className="text-text">{pct}%</span>
+            </div>
+            <div className="h-[6px] rounded-full bg-track overflow-hidden">
+              <div
+                className="h-full rounded-full shadow-[0px_0px_10px_0px_rgba(223,183,255,0.4)]"
+                style={{
+                  width: `${pct}%`,
+                  background: "linear-gradient(to right, #9d8fff, #dfb7ff)",
+                }}
+              />
+            </div>
+          </div>
+        )}
       </div>
     </Link>
   );

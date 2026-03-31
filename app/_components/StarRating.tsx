@@ -8,7 +8,7 @@ interface StarRatingProps {
 
 export function StarRating({ value, onChange, readOnly = false }: StarRatingProps) {
   return (
-    <div className="flex gap-0.5">
+    <div className="flex gap-1 p-3 rounded-full bg-[rgba(0,26,54,0.4)] w-fit">
       {([1, 2, 3, 4, 5] as const).map((star) => (
         <button
           key={star}
@@ -17,9 +17,9 @@ export function StarRating({ value, onChange, readOnly = false }: StarRatingProp
           onClick={() => onChange?.(star)}
           className={`text-xl transition-colors ${
             value !== null && star <= value
-              ? "text-pink-orchid"
-              : "text-gray-300"
-          } ${!readOnly ? "hover:text-pink-orchid cursor-pointer" : "cursor-default"}`}
+              ? "text-text-accent"
+              : "text-text-muted/40"
+          } ${!readOnly ? "hover:text-text-accent cursor-pointer" : "cursor-default"}`}
         >
           ★
         </button>
