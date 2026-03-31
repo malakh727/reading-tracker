@@ -1,6 +1,8 @@
 # 📖 Reading Tracker
 
 A modern reading tracker for books, articles, and more — built with Next.js.
+<img width="1833" height="892" alt="image" src="https://github.com/user-attachments/assets/a38447ec-95a9-4de6-82ca-b73f8413bbbb" />
+
 
 ## Features
 
@@ -32,7 +34,10 @@ A modern reading tracker for books, articles, and more — built with Next.js.
 
 ## Screenshots
 
-<img width="1833" height="892" alt="image" src="https://github.com/user-attachments/assets/a38447ec-95a9-4de6-82ca-b73f8413bbbb" />
+<img width="1833" height="892" alt="image" src="https://github.com/user-attachments/assets/8343e8c4-a563-47cc-a596-1efcaf9b1488" />
+
+<img width="1833" height="892" alt="image" src="https://github.com/user-attachments/assets/5b332956-43e2-42a2-a107-99818979ead8" />
+
 
 ## Live Demo
 
