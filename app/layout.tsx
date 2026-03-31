@@ -16,8 +16,20 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "ReadingTracker",
+  title: "Read Track",
   description: "Track every book, article, and paper you read.",
+  icons: {
+    icon: [
+      { url: "/favicons/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicons/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicons/favicon.ico", rel: "shortcut icon" },
+    ],
+    apple: { url: "/favicons/apple-touch-icon.png", sizes: "180x180" },
+  },
+  manifest: "/favicons/site.webmanifest",
+  appleWebApp: {
+    title: "Read Track",
+  },
 };
 
 export default function RootLayout({
@@ -34,7 +46,7 @@ export default function RootLayout({
         {/* Fixed top header */}
         <header className="fixed top-0 left-72 right-0 h-20 z-30 flex items-center px-8 backdrop-blur-[12px] bg-[rgba(0,14,34,0.8)] border-b border-[rgba(157,143,255,0.08)] shadow-[0px_20px_40px_0px_rgba(157,143,255,0.08)]">
           <p className="font-heading text-xl font-bold bg-gradient-to-r from-purple to-purple-deep bg-clip-text text-transparent">
-            ReadingTracker
+            Read Track
           </p>
         </header>
 
