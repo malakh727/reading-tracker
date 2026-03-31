@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ClientOnly } from "./_components/ClientOnly";
 import { HomeDashboard } from "./_components/HomeDashboard";
@@ -11,8 +12,9 @@ export default function HomePage() {
         <div className="absolute -top-16 -left-16 w-64 h-64 rounded-full bg-blue opacity-10 blur-[80px] pointer-events-none" />
         <div className="absolute -bottom-16 -right-16 w-64 h-64 rounded-full bg-purple opacity-10 blur-[80px] pointer-events-none" />
 
-        <div className="relative">
-          <span className="inline-block mb-4 px-3 py-1 rounded-full bg-[rgba(157,143,255,0.1)] text-purple text-xs font-semibold tracking-widest uppercase border border-[rgba(157,143,255,0.2)]">
+        <div className="relative flex items-center gap-10 justify-between px-[2%]">
+          <div className="flex flex-col">
+          <span className="inline-block mb-4 px-3 py-1 rounded-full bg-[rgba(157,143,255,0.1)] text-purple text-xs font-semibold tracking-widest uppercase border border-[rgba(157,143,255,0.2)] w-fit">
             Your Reading Universe
           </span>
           <h1 className="font-heading text-5xl font-bold text-text tracking-[-2px] mb-4 leading-tight">
@@ -28,6 +30,14 @@ export default function HomePage() {
           >
             + Add a Reading
           </Link>
+          </div>
+          <Image
+            src="/read-logo.png"
+            alt="Read Track logo"
+            width={350}
+            height={350}
+            className="shrink-0 drop-shadow-[0px_0px_40px_rgba(157,143,255,0.3)] rounded-2xl"
+          />
         </div>
       </section>
 
