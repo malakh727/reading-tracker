@@ -12,6 +12,16 @@ export function HomeDashboard() {
     { label: "Finished", value: readings.filter((r) => r.status === "finished").length },
   ];
 
+  const totalHours = readings.reduce((sum, r) => sum + (r.progress?.hoursSpent ?? 0), 0);
+  const totalPages = readings.reduce((sum, r) => sum + (r.progress?.pagesRead ?? 0), 0);
+  const totalWords = readings.reduce((sum, r) => sum + (r.progress?.wordsRead ?? 0), 0);
+
+  const activity = [
+    { label: "Hours Spent", value: totalHours % 1 === 0 ? totalHours : totalHours.toFixed(1), unit: "h" },
+    { label: "Pages Read", value: totalPages.toLocaleString(), unit: "pg" },
+    { label: "Words Read", value: totalWords >= 1000 ? `${(totalWords / 1000).toFixed(1)}k` : totalWords.toString(), unit: "w" },
+  ];
+
   const shelves = [
     { label: "Want to Read", status: "want-to-read", emoji: "🌟" },
     { label: "Currently Reading", status: "reading", emoji: "📖" },
@@ -29,6 +39,22 @@ export function HomeDashboard() {
           >
             <p className="text-3xl font-bold text-persian-blue">{stat.value}</p>
             <p className="text-sm text-space-indigo/60 mt-1">{stat.label}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* Reading activity */}
+      <section className="grid grid-cols-3 gap-4">
+        {activity.map((item) => (
+          <div
+            key={item.label}
+            className="rounded-xl bg-white border border-wisteria-blue/20 px-6 py-5 text-center shadow-sm"
+          >
+            <p className="text-3xl font-bold text-electric-sapphire">
+              {item.value}
+              <span className="text-base font-normal text-space-indigo/40 ml-0.5">{item.unit}</span>
+            </p>
+            <p className="text-sm text-space-indigo/60 mt-1">{item.label}</p>
           </div>
         ))}
       </section>

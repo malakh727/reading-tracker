@@ -18,6 +18,14 @@ export interface OpenLibraryCandidate {
   coverUrl: string | null;
 }
 
+/** User-tracked reading progress (all fields optional/nullable). */
+export interface ReadingProgress {
+  pagesRead: number | null;
+  totalPages: number | null;
+  wordsRead: number | null;
+  hoursSpent: number | null;
+}
+
 /** The core entity persisted in localStorage via Zustand. */
 export interface Reading {
   id: string;
@@ -29,6 +37,7 @@ export interface Reading {
   notes: string | null;
   rating: 1 | 2 | 3 | 4 | 5 | null;
   linkedBook: OpenLibraryLink | null;
+  progress: ReadingProgress | null;
   createdAt: string;
   updatedAt: string;
 }

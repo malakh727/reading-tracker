@@ -89,6 +89,7 @@ export function AddReadingForm() {
             year: linkedBook.year,
           }
         : null,
+      progress: null,
       createdAt: ts,
       updatedAt: ts,
     });

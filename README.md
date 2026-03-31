@@ -8,6 +8,8 @@ A modern reading tracker for books, articles, and more — built with Next.js.
 - Book title lookup via Open Library (auto-fills cover, author, year)
 - Personal shelves: Want to Read / Currently Reading / Finished
 - Star ratings and notes per reading
+- Progress tracking: pages read / total pages (with % bar), words read, hours spent — all user-input
+- Aggregate reading stats on the dashboard: total hours, pages, and words across all readings
 - Duplicate detection when adding the same book twice
 - Fully client-side with localStorage persistence
 
