@@ -32,7 +32,7 @@ A modern reading tracker for books, articles, and more — built with Next.js.
 
 ## Screenshots
 
-(added later)
+<img width="1833" height="892" alt="image" src="https://github.com/user-attachments/assets/a38447ec-95a9-4de6-82ca-b73f8413bbbb" />
 
 ## Live Demo
 
